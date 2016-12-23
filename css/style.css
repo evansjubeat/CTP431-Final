@@ -1,6 +1,271 @@
-#myElement {
-  background: silver;
-  height: 60vh;
-  text-align: center;
-  font: 30px/300px Helvetica, Arial, sans-serif;
+
+	button {
+	    padding: 5px;
+	    background: rgb(200, 200, 200);
+	    border: 1px solid rgb(122, 122, 122);
+	    border-radius: 2px;
+	    outline: none;
+	    width:120px;
+        height:120px;
+        font-size:15px
+	}
+	    button.active, button:active {
+        background: rgb(100, 100, 100);
+        border: 2px solid rgb(0,0,0);
+        box-shadow: 0 0 2px 0 rgb(0,0,0);
+    }
+	.musicplay{	    
+		padding: 5px;
+	    background: rgb(250, 250, 250);
+	    border: 1px solid rgb(0, 0, 0);
+	    border-radius: 1px;
+	    outline: none;
+	    width:60px;
+        height:30px;
+        font-size:15px
+	
+	}	
+	.musicstop{	    
+		padding: 5px;
+	    background: rgb(250, 250, 250);
+	    border: 1px solid rgb(0, 0, 0);
+	    border-radius: 1px;
+	    outline: none;
+	    width:60px;
+        height:30px;
+        font-size:15px
+	
+	}
+	.input{
+		padding: 5px;
+	    background: rgb(250, 250, 250);
+	    border: 1px solid rgb(0, 0, 0);
+	    border-radius: 1px;
+	    outline: none;
+	    width:60px;
+        height:30px;
+        font-size:15px
+
+	}
+    .button1{
+        padding: 5px;
+        background: rgb(120, 170, 200);
+        border: 3px solid rgb(122, 122, 122);
+        border-radius: 6px;
+        outline: none;
+        width:120px;
+        height:120px;
+        font-size:15px
+    }
+    .button2{
+        padding: 5px;
+        background: rgb(110, 150, 200);
+        border: 3px solid rgb(122, 122, 122);
+        border-radius: 6px;
+        outline: none;
+        width:120px;
+        height:120px;
+        font-size:15px
+    }
+    .button3{
+        padding: 5px;
+        background: rgb(200, 200, 230);
+        border: 3px solid rgb(122, 122, 122);
+        border-radius: 6px;
+        outline: none;
+        width:120px;
+        height:120px;
+        font-size:15px
+    }
+    .button1_active {
+        background: rgb(60, 85, 100);
+        border: 2px solid rgb(0,0,0);
+        box-shadow: 0 0 2px 0 rgb(0,0,0);
+    }
+    .button2_active {
+        background: rgb(55, 75, 100);
+        border: 2px solid rgb(0,0,0);
+        box-shadow: 0 0 2px 0 rgb(0,0,0);
+    }
+    .button3_active {
+        background: rgb(100, 100, 115);
+        border: 2px solid rgb(0,0,0);
+        box-shadow: 0 0 2px 0 rgb(0,0,0);
+    }
+    .buttonDo{
+        padding: 5px;
+        background: rgb(255, 60, 60);
+        border: 3px solid rgb(80, 80, 80);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }    
+    .buttonRe{
+        padding: 5px;
+        background: rgb(255, 167, 40);
+        border: 3px solid rgb(80, 80, 80);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }    
+    .buttonMi{
+        padding: 5px;
+        background: rgb(240, 240, 30);
+        border: 3px solid rgb(80, 80, 80);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }    
+    .buttonFa{
+        padding: 5px;
+        background: rgb(60, 255, 60);
+        border: 3px solid rgb(80, 80, 80);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }    
+    .buttonSo{
+        padding: 5px;
+        background: rgb(110, 110, 255);
+        border: 3px solid rgb(80, 80, 80);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }    
+    .buttonLa{
+        padding: 5px;
+        background: rgb(135, 100, 80);
+        border: 3px solid rgb(80, 80, 80);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }    
+    .buttonSi{
+        padding: 5px;
+        background: rgb(190, 110, 220);
+        border: 3px solid rgb(80, 80, 80);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }    
+    .buttonDoh{
+        padding: 5px;
+        background: rgb(255, 90, 90);
+        border: 3px solid rgb(80, 80, 80);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }
+
+    .buttonDo_act{
+        padding: 5px;
+        background: rgb(255, 60, 60);
+        border: 3px solid rgb(230, 230, 230);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }    
+    .buttonRe_act{
+        padding: 5px;
+        background: rgb(255, 167, 40);
+        border: 3px solid rgb(230, 230, 230);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }    
+    .buttonMi_act{
+        padding: 5px;
+        background: rgb(240, 240, 30);
+        border: 3px solid rgb(230, 230, 230);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }    
+    .buttonFa_act{
+        padding: 5px;
+        background: rgb(60, 255, 60);
+        border: 3px solid rgb(230, 230, 230);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }    
+    .buttonSo_act{
+        padding: 5px;
+        background: rgb(110, 110, 255);
+        border: 3px solid rgb(230, 230, 230);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }    
+    .buttonLa_act{
+        padding: 5px;
+        background: rgb(135, 100, 230);
+        border: 3px solid rgb(230, 230, 230);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }    
+    .buttonSi_act{
+        padding: 5px;
+        background: rgb(190, 110, 220);
+        border: 3px solid rgb(230, 230, 230);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }    
+    .buttonDoh_act{
+        padding: 5px;
+        background: rgb(255, 90, 90);
+        border: 3px solid rgb(230, 230, 230);
+        border-radius: 6px;
+        outline: none;
+        width:70px;
+        height:90px;
+        font-size:15px
+    }       
+	img {
+	position:absolute;
+	right:0px;
+	top:0px;
+	z-index:-1;}
+	.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url('http://bradsknutson.com/wp-content/uploads/2013/04/page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
 }
+	
+	
