@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+</head>
+
+<style>
+	button {
+	    padding: 5px;
+	    background: rgb(200, 200, 200);
+	    border: 1px solid rgb(122, 122, 122);
+	    border-radius: 2px;
+	    outline: none;
+	    width:120px;
+        height:120px;
+        font-size:15px
+	}
+	    button.active, button:active {
+        background: rgb(100, 100, 100);
+        border: 2px solid rgb(0,0,0);
+        box-shadow: 0 0 2px 0 rgb(0,0,0);
+    }
+    .button1{
+        padding: 5px;
+        background: rgb(120, 170, 200);
+        border: 3px solid rgb(122, 122, 122);
+        border-radius: 6px;
+        outline: none;
+        width:120px;
+        height:120px;
+        font-size:15px
+    }
+    .button2{
+        padding: 5px;
+        background: rgb(110, 150, 200);
+        border: 3px solid rgb(122, 122, 122);
+        border-radius: 6px;
+        outline: none;
+        width:120px;
+        height:120px;
+        font-size:15px
+    }
+    .button3{
+        padding: 5px;
+        background: rgb(200, 200, 230);
+        border: 3px solid rgb(122, 122, 122);
+        border-radius: 6px;
+        outline: none;
+        width:120px;
+        height:120px;
+        font-size:15px
+    }
+    .button1_active {
+        background: rgb(60, 85, 100);
+        border: 2px solid rgb(0,0,0);
+        box-shadow: 0 0 2px 0 rgb(0,0,0);
+    }
+    .button2_active {
+        background: rgb(55, 75, 100);
+        border: 2px solid rgb(0,0,0);
+        box-shadow: 0 0 2px 0 rgb(0,0,0);
+    }
+    .button3_active {
+        background: rgb(100, 100, 115);
+        border: 2px solid rgb(0,0,0);
+        box-shadow: 0 0 2px 0 rgb(0,0,0);
+    }
+	img {
+	position:absolute;
+	right:0px;
+	top:0px;
+	z-index:-1;}
+	
+	
+</style>
+<body>
+<h1> Web Vocalinstrument </h1>
+<p> With keyboard, sing a song with vocaloid Hatsune Miku V3 voicebank</p>
+<img src="img_illust_miku.png" align="right">
+
+    <button id="Key1" class="button button1" > 1(A) </button>
+    <button id="Key2" class="button button1" > 2(K) </button>
+    <button id="Key3" class="button button1" > 3(S) </button>
+    <button id="Key4" class="button button1" > 4(T) </button>
+    <button id="Key5" class="button button1" > 5(N) </button>
+<br>
+<br>
+    <button id="KeyQ" class="button button2" > Q(H) </button>
+    <button id="KeyW" class="button button2" > W(M) </button>
+    <button id="KeyR" class="button button2" > E(Y) </button>
+    <button id="KeyT" class="button button2" > R(R) </button>
+    <button id="KeyY" class="button button2" > T(W) </button>
+
+<br>
+<br>
+    <button id="KeyA" class = "button button3"> A(A) </button>
+    <button id="KeyS" class = "button button3"> S(I) </button>
+    <button id="KeyD" class = "button button3"> D(U) </button>
+    <button id="KeyF" class = "button button3"> F(E) </button>
+    <button id="KeyG" class = "button button3"> G(O) </button>
+
+<audio id=Ado> <source src=vocal/Ado.wav></audio>
+<audio id=Are> <source src=vocal/Are.wav></audio>
+<audio id=Ami> <source src=vocal/Ami.wav></audio>
+<audio id=Afa> <source src=vocal/Afa.wav></audio>
+<audio id=Aso> <source src=vocal/Aso.wav></audio>
+<audio id=Ala> <source src=vocal/Ala.wav></audio>
+<audio id=Asi> <source src=vocal/Asi.wav></audio>
+<audio id=Adoh> <source src=vocal/Adoh.wav></audio>
+
+<audio id=Ido> <source src=vocal/Ido.wav></audio>
+<audio id=Ire> <source src=vocal/Ire.wav></audio>
+<audio id=Imi> <source src=vocal/Imi.wav></audio>
+<audio id=Ifa> <source src=vocal/Ifa.wav></audio>
+<audio id=Iso> <source src=vocal/Iso.wav></audio>
+<audio id=Ila> <source src=vocal/Ila.wav></audio>
+<audio id=Isi> <source src=vocal/Isi.wav></audio>
+<audio id=Idoh> <source src=vocal/Idoh.wav></audio>
+ASDFASDF
+<script>
+//document.getElementById('demo').play();
+window.addEventListener("keydown", keysPressed, true);
+window.addEventListener("keyup", keysReleased, false);
+var hatsuon=-999;
+var ids;
+
+var activebutton = "button default"
+var soundId;
+ var sounds = {
+   0 : 'Ado', // key '1a z'
+   1 : 'Ido', // key '1s z'
+   2 : 'Udo', // key '1d z'
+   3 : 'Edo', // key '1f z'
+   4 : 'Odo', // key '1g z'
+
+   100 : 'Are', // key '1a x'
+   101 : 'Ire', // key '1s x'
+   102 : 'Ure', // key '1d x'
+   103 : 'Ere', // key '1f x'
+   104 : 'Ore', // key '1g x'
+
+   200 : 'Ami', // key '1a x'
+   201 : 'Imi', // key '1s x'
+   202 : 'Umi', // key '1d x'
+   203 : 'Emi', // key '1f x'
+   204 : 'Omi', // key '1g x'
+
+   300 : 'Afa', // key '1a x'
+   301 : 'Ifa', // key '1s x'
+   302 : 'Ufa', // key '1d x'
+   303 : 'Efa', // key '1f x'
+   304 : 'Ofa', // key '1g x'
+
+   400 : 'Aso', // key '1a x'
+   401 : 'Iso', // key '1s x'
+   402 : 'Uso', // key '1d x'
+   403 : 'Eso', // key '1f x'
+   404 : 'Oso', // key '1g x'
+
+   500 : 'Ala', // key '1a x'
+   501 : 'Ila', // key '1s x'
+   502 : 'Ula', // key '1d x'
+   503 : 'Ela', // key '1f x'
+   504 : 'Ola', // key '1g x'
+
+   600 : 'Asi', // key '1a x'
+   601 : 'Isi', // key '1s x'
+   602 : 'Usi', // key '1d x'
+   603 : 'Esi', // key '1f x'
+   604 : 'Osi', // key '1g x'
+
+   700 : 'Adoh', // key '1a x'
+   701 : 'Idoh', // key '1s x'
+   702 : 'Udoh', // key '1d x'
+   703 : 'Edoh', // key '1f x'
+   704 : 'Odoh', // key '1g x'
+  
+};
+document.onkeydown = function(e) {
+
+	ids = "Key"+String.fromCharCode(e.keyCode);
+	console.log(ids);
+//	console.log("final key " + (keyConvert(e.keyCode)+hatsuon))
+    soundId = sounds[keyConvert(e.keyCode)+hatsuon];
+//	console.log("hatsuon is " +hatsuon);
+    if (soundId) document.getElementById(soundId).play();
+    else console.log("key not mapped : code is", e.keyCode);
+	activebutton = 	document.getElementById(ids); 
+	console.log("active button" + activebutton);
+//	clappad.className = 'button3_active';
+	if (activebutton.className == "button button1")
+		activebutton.className = 'button1_active';
+	else if(activebutton.className == "button button2")
+		activebutton.className = "button2_active";
+	else if (activebutton.className == "button button3")
+		activebutton.className = "button3_active"
+
+}
+document.onkeyup = function(e) {
+//	console.log("onkeyup")
+
+
+    soundId = sounds[keyConvert(e.keyCode)+hatsuon];
+    if (soundId) document.getElementById(soundId).pause();
+    if (soundId) document.getElementById(soundId).currentTime = 0;
+    else console.log("key not mapped : code is", e.keyCode);
+	console.log(hatsuon);
+	ids = "Key"+String.fromCharCode(e.keyCode);
+	activebutton = 	document.getElementById(ids); 
+//	clappad.className = 'button3_active';
+	if (activebutton.className == "button1_active")
+		activebutton.className = 'button button1';
+	else if(activebutton.className == "button2_active")
+		activebutton.className = "button button2";
+	else if (activebutton.className == "button3_active")
+		activebutton.className = "button button3"
+
+	//	hatsuon=0;
+}
+
+var keys = []; 
+
+function keyConvert(input) // Key zxcvbnm,./ for melody input
+{
+	if (input == 90)
+		return 0;
+	if (input == 88)
+		return 100;
+	if (input == 67)
+		return 200;
+	if (input == 86)
+		return 300;
+	if (input == 66)
+		return 400;
+	if (input == 78)
+		return 500;
+	if (input == 77)
+		return 600;
+	if (input == 188)
+		return 700;
+}
+function keysPressed(e) {
+    // store an entry for every key pressed
+
+	keys[e.keyCode] = true;
+	if (keys[50])
+	{
+		if (keys[65]) {
+		// do something
+		console.log("YES")
+		hatsuon = 0;
+		}
+	// 1a, I
+		else if (keys[83]) {
+		// do something
+		console.log("YES")
+		hatsuon = 1;
+		}
+	// 1a, U
+		else if (keys[68]) {
+		// do something
+		console.log("YES")
+		hatsuon = 2;
+		}
+		// 1a, E
+		else if (keys[70]) {
+		// do something
+		console.log("YES")
+		hatsuon = 3;
+		}
+	// 1a, O
+		if (keys[71]) {
+		// do something
+		console.log("YES")
+		hatsuon = 4;
+		}
+	}
+
+	// 1a, A
+	if (keys[49])
+	{
+	
+		if(keys[65]) {
+		// do something
+		console.log("YES")
+		hatsuon = 0;
+		}
+	// 1a, I
+		if (keys[83]) {
+		// do something
+		console.log("YES")
+		hatsuon = 1;
+		}
+	// 1a, U
+		if (keys[68]) {
+		// do something
+		console.log("YES")
+		hatsuon = 2;
+		}
+	// 1a, E
+		if (keys[70]) {
+		// do something
+		console.log("YES")
+		hatsuon = 3;
+		}
+	// 1a, O
+		if (keys[71]) {
+		// do something
+		console.log("YES")
+		hatsuon = 4;
+		}
+	}
+	//--------------------------------------------------------------------------
+		// 1a, KA
+	//--------------------------------------------------------------------------
+
+
+	
+	// Ctrl + f
+	if (keys[17] && keys[70]) {
+		// do something
+		
+		// prevent default browser behavior
+		e.preventDefault(); 
+		console.log("asdf")
+	}
+}
+ 
+function keysReleased(e) {
+    // mark keys that were released
+    keys[e.keyCode] = false;
+	//document.getElementById(soundId).pause();
+	//document.getElementById(soundId).currentTime = 0;
+
+	hatsuon=0;
+}
+    function simulateClick(element) {
+        var event = new MouseEvent("mousedown", {
+            bubbles: true,
+            cancelable: true,
+            view: window
+        });
+        element.dispatchEvent(event);
+    }
+</script>
+</body>
+
+</html>
