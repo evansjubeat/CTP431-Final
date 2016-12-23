@@ -2,8 +2,8 @@
 <html >
 <head>
   <meta charset="UTF-8">
-    <script src="js/functions.js"></script>
-	<script src="js/AudioScript.js"></script>
+    <script defer src="js/functions.js"></script>
+	<script defer src="js/AudioScript.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -15,7 +15,7 @@ $(window).load(function() {
 
 <body>
 <div class="loader"></div>
-<h1> Web Vocalinstrument </h1>
+<h1> Web VocaloInstrument </h1>
 <p> With keyboard, sing a song with vocaloid Hatsune Miku V3 voicebank</p>
 <a href="introduction.html">Click here to read description</a>
 <div class="filebox bs3-primary preview-image">
@@ -58,7 +58,6 @@ $(window).load(function() {
     <button id="KeyM" class = "button buttonSi"> M(Si) </button>
     <button id="Key," class = "button buttonDoh"> ,(Do) </button>
 
-    <input class="volume" onchange="changegain(this.value)" id="VocalVol" title="Vocal Volume" type="range" min="-24" max ="0" value = "-12">
     <p id="VocalVol_Label"></p>
 <audio id=Ado> <source src=vocal/Ado.wav></audio> <audio id=Ido> <source src=vocal/Ido.wav></audio> <audio id=Udo> <source src=vocal/Udo.wav></audio> <audio id=Edo> <source src=vocal/Edo.wav></audio> <audio id=Odo> <source src=vocal/Odo.wav></audio> 
 <audio id=KAdo> <source src=vocal/KAdo.wav></audio> <audio id=KIdo> <source src=vocal/KIdo.wav></audio> <audio id=KUdo> <source src=vocal/KUdo.wav></audio> <audio id=KEdo> <source src=vocal/KEdo.wav></audio> <audio id=KOdo> <source src=vocal/KOdo.wav></audio> 
@@ -155,6 +154,7 @@ var keyArray = {"1" : "'", "2" : "K", "3" : "S", "4" : "T", "5" : "N",
 				"A" : "A", "S" : "I", "D" : "U", "F" : "E", "G" : "O"};
 var soundId;
 var PressedKeyCount=0; // For showing only currently pressed keys
+var tempPressedKey;
 var combo = {
 50 : 0, 49 : 1, 
 }
@@ -177,11 +177,19 @@ document.onkeydown = function(e) {
 	if (ctrlpron.includes(e.keyCode)){
 		if (PressedKeyCount == 0)
 		{
-			document.getElementById("CurKey").innerHTML += keyArray[String.fromCharCode(e.keyCode)];
+			tempPressedKey = e.keyCode;
 			PressedKeyCount +=1;
 		}
-	}
+		else if (PressedKeyCount == 1)
+		{	
+			if (e.keyCode == 65 ||e.keyCode == 83 ||e.keyCode == 68 ||e.keyCode == 70 ||e.keyCode == 71)
+				document.getElementById("CurKey").innerHTML = (keyArray[String.fromCharCode(tempPressedKey)] + keyArray[String.fromCharCode(e.keyCode)]);
+			else
+				document.getElementById("CurKey").innerHTML = (keyArray[String.fromCharCode(e.keyCode)]+keyArray[String.fromCharCode(tempPressedKey)]);
 
+			PressedKeyCount +=1;
+	}
+}
 	console.log(ids);
 //	console.log("final key " + (keyConvert(e.keyCode)+hatsuon))
     soundId = sounds[keyConvert(e.keyCode)+hatsuon];
@@ -218,6 +226,9 @@ document.onkeydown = function(e) {
 
 }
 document.onkeyup = function(e) {
+	document.getElementById("CurKey").innerHTML == "";
+	tempPressedKey = null;
+	PressedKeyCount = 0;
 	console.log("-------------------onkeyup")
 	console.log(e.keyCode+" key is detected")
 	console.log(keyConvert(e.keyCode)+hatsuon)

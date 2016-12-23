@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-//It's Really Good to use computer for repeated work!
-//Author: JaeHoon Moon
-//Wrote for generating audio tag and array
+
 
 int main(void)
 {
@@ -23,7 +21,7 @@ int main(void)
 		{
 			for(j = 0; j<5;j++)
 			{
-				number = (k+1)*100 + i*5 + j;
+				number = (k+1)*100 + i*5 +j;
 				fprintf(f, "%d : '%s%s%s', ", number, conso[i], aiueo[j], mel[k]);	
 			}
 		}
@@ -36,7 +34,22 @@ int main(void)
 		{
 			for(j = 0; j<5;j++)
 			{
-				fprintf(f, "<audio id=%s%s%s> <source src=vocal/%s%s%s.wav></audio> ", conso[i], aiueo[j], mel[k],conso[i], aiueo[j], mel[k]);	
+				if ((strcmp(aiueo[j], "I") == 0) && (strcmp(conso[i], "Y") ==0))
+				{
+					printf("YI!");
+				}
+				else if ((strcmp(aiueo[j], "E") == 0) && (strcmp(conso[i], "Y") == 0))
+				{
+					printf("YE!");
+				}
+				else if ((strcmp(aiueo[j], "U") == 0) && (strcmp(conso[i], "W") == 0))
+				{
+					printf("WU!");
+				}
+				else
+				{
+					fprintf(f, "<audio id=%s%s%s> <source src=vocal/%s%s%s.wav></audio> ", conso[i], aiueo[j], mel[k],conso[i], aiueo[j], mel[k]);	
+				}
 			}
 			fprintf(f, "\n");
 

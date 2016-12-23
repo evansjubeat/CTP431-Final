@@ -1,7 +1,7 @@
 <a href="index.html" style="text-decoration: none; font-size: 1.5em;"> < Go back to main page</a>
 
 <h1>VocaloInstrument</h1>
-<h3>CTP431 20111930 문재훈</h3>   
+<h3>CTP431 20111039 문재훈</h3>   
 <h2>Introduction</h2>
 <p>
 	<a href="http://www.crypton.co.jp/miku_eng">Hatsune miku</a> is a Vocaloid Voice library that can be used by software <a href="https://net.vocaloid.com/en/VOCALOID">VOCALOID</a>.
@@ -37,5 +37,45 @@
 	Therefore, it is possible to adjust singing duration with one note up to 3 seconds(maximum length of records)
 </p>
 <p>
-	HTML Button tags don't work as they are clicked; They are just there for input feedback. It responds to corresponding Key that is assigned, from 1 to 5 and Q to T for consonent, and A to G for vowel.
+	HTML Button tags don't work as they are clicked; They are just there for input feedback. It responds to corresponding Key that is assigned, from 1 to 5 and Q to T for consonant, and A to G for vowel.
 </p>
+
+<h2>How it works</h2>
+<p>
+	As this project is based on Japanese software and instrument, pronounciation range is limited. 
+</p>
+<p>
+	Upper ten keys, 1~5 and Q~T, are for deciding consonant. Lower five keys, A to G are for deciding vowel. With combination of consonant and vowel, the pronounciation is decided.
+</p>
+<p>
+	User must press pronounciation control keys to determine pronounciation before pressing melody key(bottom row of keyboard from z to ,) unless the voice will not be played.
+</p>
+<p>
+	Also, unpressing any of keys required to play a voice will cause instant pause(stop) of voice playing.
+</p>
+<p>
+	With load button placed above the control pad, user can freely load one's favorite music to be played as background music.
+</p>
+<p>
+	At the bottom of control pads, currently pressed pronounciation is displayed in alphabet combination. It only appears when both consonant and vowel keys are pressed together.
+</p>
+<p>
+	For readability and unity, if the pronounciation is A,I,U,E, or O, which doesn't have consonant, ' character is displayed.
+</p>
+<p>
+	Currently trying to apply function that can at least adjust volume of loaded music.
+</p>
+
+<h2>Things to be Improved</h2>
+<p>
+	There should be research about better interface for more convenient way to play this web-instrument. Due to complexity of pressing keys, even not all Japanese pronounciations are included. (GA,PA,BA sounds are missing)
+</p>
+<p>
+	I didn't do the lossy compression on voice data for maximum performance, but since this takes huge(about 260MB) amount of data, it takes much long time to be fully loaded on user's client.
+</p>
+<p>
+	(Even after loading gif fades out, on the background the wav files are still downloading on the browser's cache.)
+</p>
+
+
+
