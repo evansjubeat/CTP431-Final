@@ -1,0 +1,41 @@
+<a href="index.html" style="text-decoration: none; font-size: 1.5em;"> < Go back to main page</a>
+
+<h1>VocaloInstrument</h1>
+<h3>CTP431 20111930 문재훈</h3>   
+<h2>Introduction</h2>
+<p>
+	<a href="http://www.crypton.co.jp/miku_eng">Hatsune miku</a> is a Vocaloid Voice library that can be used by software <a href="https://net.vocaloid.com/en/VOCALOID">VOCALOID</a>.
+</p>
+<p>
+	Vocaloid imports library voicebank to sing a song with user-provided inputs, including lyrics, melody, and various parameters to modify them.
+</p>
+
+<h2>Idea Development</h2>
+<h3>Pocket Miku Singing Keyboard</h3>
+<p>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/dxB0mDHWDkg" frameborder="0" allowfullscreen></iframe></p>
+<p>
+	About a couple of years ago, simple electronic instrument was introduced in a magazine called "Adult science Magazine". It's called Pocket miku, which can make Miku's singing voice with simple keyboard.
+</p>
+<p>
+	My Inspiration came here, which was implementing this instrument on the web.
+</p>
+	<h2>Development Process</h2>
+<p>
+	Since I own legit VOCALOID V3 Program with Hatsune miku V3 software, I extracted every single pronounciation as short wav file.
+</p>
+<p>
+	The problem was that, not every pronounciation had same Attack timing, so I carefully cut the front part of wav file as far as I could.
+</p>
+<p>
+	I also tried to load and connect the voice wav file to the AudioBuffer nodes, but HTML didn't allow use one xmlHttpRequest on multiple files. It might still be possible if I try to create xmlHttpRequest variable for few hundreds of files.
+</p>
+<p>
+	Then, I implemented input part, which is basically done only on keyboard. The singing voice only sounds when the key is pressed. If it is released, instantly the voice stops.
+</p>
+<p>
+	Therefore, it is possible to adjust singing duration with one note up to 3 seconds(maximum length of records)
+</p>
+<p>
+	HTML Button tags don't work as they are clicked; They are just there for input feedback. It responds to corresponding Key that is assigned, from 1 to 5 and Q to T for consonent, and A to G for vowel.
+</p>
